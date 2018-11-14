@@ -109,7 +109,14 @@ int BinaryNodeTree<ItemType>::getHeightHelper(BinaryNode < ItemType > *subTreePt
 template <class ItemType>
 int BinaryNodeTree<ItemType>::getNumberOfNodesHelper(BinaryNode < ItemType > *subTreePtr) const
 {
-
+	if (subTreePtr == nullptr)
+	{
+		return 0;
+	}
+	else
+	{
+		return (1 + getNumberOfNodesHelper(subTreePtr->getLeftChildPtr()) + getNumberOfNodesHelper(subTreePtr->getRightChildPtr());
+	}
 }
 
 template <class ItemType>
@@ -163,7 +170,30 @@ BinaryNode < ItemType > * BinaryNodeTree<ItemType>::moveValuesUpTree(BinaryNode 
 template <class ItemType>
 BinaryNode < ItemType > * BinaryNodeTree<ItemType>::findNode(BinaryNode < ItemType > *treePtr, const ItemType & target, bool & success) const
 {
-
+	if (treePtr != nullptr)
+	{
+		if (treePtr->getItem() == target)
+		{
+			success = true;
+			return treePtr;
+		}
+		else
+		{
+			BinaryNode<ItemType>* result;
+			result = findNode(treePtr->getLeftChildPtr(), target, success);
+			if (success)
+			{
+				return result;
+			}
+			result = findNode(treePtr->getRightChildPtr(), target, success);
+			if (success)
+			{
+				return result;
+			}
+		}
+	}
+	success = false;
+	return nullptr;
 }
 
 template <class ItemType>
@@ -182,7 +212,13 @@ BinaryNode < ItemType > * BinaryNodeTree<ItemType>::copyTree(const BinaryNode < 
 template <class ItemType>
 void BinaryNodeTree<ItemType>::preorder(void visit(ItemType &), BinaryNode < ItemType > *treePtr) const
 {
-
+	if (treePtr != nullptr)
+	{
+		ItemType theItem = treePtr->getItem();
+		visit(theItem);
+		preorder(visit, treePtr->getLeftChildPtr());
+		preorder(visit, treePtr->getRightChildPtr());
+	}
 }
 
 template <class ItemType>
@@ -200,7 +236,13 @@ void BinaryNodeTree<ItemType>::inorder(void visit(ItemType &), BinaryNode < Item
 template <class ItemType>
 void BinaryNodeTree<ItemType>::postorder(void visit(ItemType &), BinaryNode < ItemType > *treePtr) const
 {
-
+	if (treePtr != nullptr)
+	{
+		postorder(visit, treePtr->getLeftChildPtr());
+		postorder(visit, treePtr->getRightChildPtr());
+		ItemType theItem = treePtr->getItem();
+		visit(theItem);
+	}
 }
 
 template <class ItemType>
@@ -252,7 +294,7 @@ int BinaryNodeTree<ItemType>::getHeight() const
 template <class ItemType>
 int BinaryNodeTree<ItemType>::getNumberOfNodes() const
 {
-
+	return getNumberOfNodesHelper(rootPtr);
 }
 
 template <class ItemType>
@@ -302,19 +344,19 @@ bool BinaryNodeTree<ItemType>::contains(const ItemType & anEntry) const
 template <class ItemType>
 void BinaryNodeTree<ItemType>::preorderTraverse(void visit(ItemType &)) const
 {
-
+	preorder(visit, rootPtr);
 }
 
 template <class ItemType>
 void BinaryNodeTree<ItemType>::inorderTraverse(void visit(ItemType &)) const
 {
-
+	inorder(visit, rootPtr);
 }
 
 template <class ItemType>
 void BinaryNodeTree<ItemType>::postorderTraverse(void visit(ItemType &)) const
 {
-
+	postorder(visit, rootPtr);
 }
 
 template <class ItemType>
