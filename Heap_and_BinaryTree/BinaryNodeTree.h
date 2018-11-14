@@ -170,7 +170,12 @@ BinaryNode < ItemType > * BinaryNodeTree<ItemType>::moveValuesUpTree(BinaryNode 
 template <class ItemType>
 BinaryNode < ItemType > * BinaryNodeTree<ItemType>::findNode(BinaryNode < ItemType > *treePtr, const ItemType & target, bool & success) const
 {
-	if (treePtr != nullptr)
+	if (treePtr == nullptr)
+	{
+		success = false;
+		return nullptr;
+	}
+	else
 	{
 		if (treePtr->getItem() == target)
 		{
@@ -192,8 +197,7 @@ BinaryNode < ItemType > * BinaryNodeTree<ItemType>::findNode(BinaryNode < ItemTy
 			}
 		}
 	}
-	success = false;
-	return nullptr;
+	
 }
 
 template <class ItemType>
@@ -300,7 +304,11 @@ int BinaryNodeTree<ItemType>::getNumberOfNodes() const
 template <class ItemType>
 ItemType BinaryNodeTree<ItemType>::getRootData() const throw (PrecondViolatedExcep)
 {
-
+	if (this->isEmpty())
+	{
+		throw PrecondViolatedExcep("getRootData() called with empty root");
+	}
+	return rootPtr->getItem();
 }
 
 template <class ItemType>

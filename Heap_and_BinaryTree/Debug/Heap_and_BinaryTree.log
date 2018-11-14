@@ -1,13 +1,1 @@
-﻿  heapSort.cpp
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(2): error C2065: 'anArray': undeclared identifier
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(2): error C2059: syntax error: ':'
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(2): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(2): error C2059: syntax error: ')'
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(4): error C2143: syntax error: missing ';' before 'for'
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(4): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(5): error C2143: syntax error: missing ';' before '{'
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(5): error C2447: '{': missing function header (old-style formal list?)
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(14): error C2146: syntax error: missing ';' before identifier 'anArray'
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(19): error C2143: syntax error: missing ';' before '{'
-e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\heapsort.cpp(19): error C2447: '{': missing function header (old-style formal list?)
+﻿  PrecondViolatedExcep.cpp
