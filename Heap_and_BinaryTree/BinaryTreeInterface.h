@@ -1,8 +1,9 @@
 /** Interface for the ADT binary tree.
  @file BinaryTreeInterface.h */
 #pragma once
+#include "NotFoundException.h"
 
-template< class ItemType>
+template <class ItemType>
 class BinaryTreeInterface
 {
 public:
@@ -30,12 +31,12 @@ public:
 	virtual void setRootData(const ItemType& newData) = 0;
 	/** Adds a new node containing the given data to this binary tree.
 	@param newData The data for the new node. */
-	@post The binary tree contains a new node.
-		@return True if the addition is successful, or false not. * /
+	/*@post The binary tree contains a new node.
+		@return True if the addition is successful, or false not. */
 		virtual bool add(const ItemType& newData) = 0;
 	/** Removes the node containing the given data item from this binary tree.
 	@param data The data value to remove from the binary tree. */
-	@return True if the removal is successful, or false not. * /
+	/*@return True if the removal is successful, or false not. */
 		virtual bool remove(const ItemType& data) = 0;
 	/** Removes all nodes from this binary tree. */
 	virtual void clear() = 0;
@@ -45,8 +46,7 @@ public:
 	@param anEntry The entry to locate.
 	@return The entry in the binary tree that matches the given entry.
 	@throw NotFoundException if the given entry is not in the tree. */
-	virtual ItemType getEntry(const ItemType& anEntry) const
-		throw(NotFoundException) = 0;
+	virtual ItemType getEntry(const ItemType& anEntry) const throw(NotFoundException) = 0;
 	/** Tests whether a given entry occurs in this binary tree.
 	@post The binary search tree is unchanged.
 	@param anEntry The entry to find.

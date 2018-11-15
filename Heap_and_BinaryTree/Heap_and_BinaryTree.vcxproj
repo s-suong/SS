@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="heapSort.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="NotFoundException.cpp" />
     <ClCompile Include="PrecondViolatedExcep.cpp" />
   </ItemGroup>

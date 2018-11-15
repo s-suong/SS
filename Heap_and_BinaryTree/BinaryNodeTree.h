@@ -84,6 +84,11 @@ public:
 
 
 
+
+//------------------------------------------------------------
+// Protected Utility Methods Section:
+// Recursive helper methods for the public methods.
+//------------------------------------------------------------
 int max(const int& a, const int& b)
 {
 	if (a > b)
@@ -115,7 +120,7 @@ int BinaryNodeTree<ItemType>::getNumberOfNodesHelper(BinaryNode < ItemType > *su
 	}
 	else
 	{
-		return (1 + getNumberOfNodesHelper(subTreePtr->getLeftChildPtr()) + getNumberOfNodesHelper(subTreePtr->getRightChildPtr());
+		return (1 + getNumberOfNodesHelper(subTreePtr->getLeftChildPtr()) + getNumberOfNodesHelper(subTreePtr->getRightChildPtr()));
 	}
 }
 
@@ -158,13 +163,28 @@ BinaryNode < ItemType > * BinaryNodeTree<ItemType>::balancedAdd(BinaryNode < Ite
 template <class ItemType>
 BinaryNode < ItemType > * BinaryNodeTree<ItemType>::removeValue(BinaryNode < ItemType > *subTreePtr, const ItemType target, bool & success)
 {
-
+	return nullptr;
 }
 
 template <class ItemType>
 BinaryNode < ItemType > * BinaryNodeTree<ItemType>::moveValuesUpTree(BinaryNode < ItemType > *subTreePtr)
 {
-
+	if (subTreePtr != nullptr)
+	{
+		BinaryNode<ItemType>* leftPtr = subTreePtr->getLeftChildPtr();
+		BinaryNode<ItemType>* rightPtr = subTreePtr->getRightChildPtr();
+		if (leftPtr != nullptr)
+		{
+			subTreePtr->setItem(leftPtr->getItem());
+			moveValuesUpTree(leftPtr);
+		}
+		else if (rightPtr != nullptr)
+		{
+			subTreePtr->setItem(rightPtr->getItem());
+			moveValuesUpTree(rightPtr);
+		}
+	}
+	return nullptr;
 }
 
 template <class ItemType>
@@ -197,7 +217,7 @@ BinaryNode < ItemType > * BinaryNodeTree<ItemType>::findNode(BinaryNode < ItemTy
 			}
 		}
 	}
-	
+
 }
 
 template <class ItemType>
@@ -213,6 +233,9 @@ BinaryNode < ItemType > * BinaryNodeTree<ItemType>::copyTree(const BinaryNode < 
 	return newTreePtr;
 }
 
+//------------------------------------------------------------
+// Public Traversals Section.
+//------------------------------------------------------------
 template <class ItemType>
 void BinaryNodeTree<ItemType>::preorder(void visit(ItemType &), BinaryNode < ItemType > *treePtr) const
 {
@@ -249,6 +272,9 @@ void BinaryNodeTree<ItemType>::postorder(void visit(ItemType &), BinaryNode < It
 	}
 }
 
+//------------------------------------------------------------
+// Constructor and Destructor Section.
+//------------------------------------------------------------
 template <class ItemType>
 BinaryNodeTree<ItemType>::BinaryNodeTree()
 	: rootPtr(nullptr)
@@ -279,6 +305,9 @@ BinaryNodeTree<ItemType>::~BinaryNodeTree()
 	destroyTree(rootPtr);
 }
 
+//------------------------------------------------------------
+// Public BinaryTreeInterface Methods Section.
+//------------------------------------------------------------
 template <class ItemType>
 bool BinaryNodeTree<ItemType>::isEmpty() const
 {
@@ -314,7 +343,7 @@ ItemType BinaryNodeTree<ItemType>::getRootData() const throw (PrecondViolatedExc
 template <class ItemType>
 void BinaryNodeTree<ItemType>::setRootData(const ItemType & newData)
 {
-	rootPtr->item = newData;
+	rootPtr->setItem(newData);
 }
 
 template <class ItemType>
@@ -328,7 +357,7 @@ bool BinaryNodeTree<ItemType>::add(const ItemType & newData)
 template <class ItemType>
 bool BinaryNodeTree<ItemType>::remove(const ItemType & data)
 {
-
+	return false;
 }
 
 template <class ItemType>
@@ -340,13 +369,21 @@ void BinaryNodeTree<ItemType>::clear()
 template <class ItemType>
 ItemType BinaryNodeTree<ItemType>::getEntry(const ItemType & anEntry) const throw (NotFoundException)
 {
-
+	bool success;
+	BinaryNode<ItemType>* result = findNode(rootPtr, anEntry, success);
+	if (!success)
+	{
+		throw NotFoundException("Entry not found");
+	}
+	return result->getItem();
 }
 
 template <class ItemType>
 bool BinaryNodeTree<ItemType>::contains(const ItemType & anEntry) const
 {
-
+	bool success;
+	findNode(rootPtr, anEntry, success);
+	return success;
 }
 
 template <class ItemType>
@@ -367,6 +404,9 @@ void BinaryNodeTree<ItemType>::postorderTraverse(void visit(ItemType &)) const
 	postorder(visit, rootPtr);
 }
 
+//------------------------------------------------------------
+// Overloaded Operator Section.
+//------------------------------------------------------------
 template <class ItemType>
 BinaryNodeTree<ItemType>& BinaryNodeTree<ItemType>::operator= (const BinaryNodeTree & rightHandSide)
 {

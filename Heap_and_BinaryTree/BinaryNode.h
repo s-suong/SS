@@ -19,7 +19,7 @@ public:
 	bool isLeaf() const;
 	BinaryNode<ItemType>* getLeftChildPtr()const;
 	BinaryNode<ItemType>* getRightChildPtr()const;
-	void setLeftChildPtr(BinaryNodeItemType>* leftPtr);
+	void setLeftChildPtr(BinaryNode<ItemType>* leftPtr);
 	void setRightChildPtr(BinaryNode<ItemType>* rightPtr);
 };
 

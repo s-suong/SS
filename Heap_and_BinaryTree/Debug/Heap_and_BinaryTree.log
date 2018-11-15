@@ -1,1 +1,10 @@
-﻿  PrecondViolatedExcep.cpp
+﻿  main.cpp
+e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\binarytreeinterface.h(49): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+  e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\binarytreeinterface.h(62): note: see reference to class template instantiation 'BinaryTreeInterface<ItemType>' being compiled
+e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\binarynodetree.h(65): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+  e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\binarynodetree.h(82): note: see reference to class template instantiation 'BinaryNodeTree<ItemType>' being compiled
+e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\binarynodetree.h(70): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\binarynodetree.h(319): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\binarynodetree.h(355): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+e:\for school\cau truc du lieu va giai thuat\heap_and_binarytree\heap_and_binarytree\binarynodetree.h(215): warning C4715: 'BinaryNodeTree<int>::findNode': not all control paths return a value
+  Heap_and_BinaryTree.vcxproj -> E:\For School\Cau Truc Du Lieu Va Giai Thuat\Heap_and_BinaryTree\Debug\Heap_and_BinaryTree.exe
