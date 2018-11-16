@@ -85,6 +85,7 @@ public:
 
 
 
+
 //------------------------------------------------------------
 // Protected Utility Methods Section:
 // Recursive helper methods for the public methods.
@@ -163,28 +164,13 @@ BinaryNode < ItemType > * BinaryNodeTree<ItemType>::balancedAdd(BinaryNode < Ite
 template <class ItemType>
 BinaryNode < ItemType > * BinaryNodeTree<ItemType>::removeValue(BinaryNode < ItemType > *subTreePtr, const ItemType target, bool & success)
 {
-	return nullptr;
+	//
 }
 
 template <class ItemType>
 BinaryNode < ItemType > * BinaryNodeTree<ItemType>::moveValuesUpTree(BinaryNode < ItemType > *subTreePtr)
 {
-	if (subTreePtr != nullptr)
-	{
-		BinaryNode<ItemType>* leftPtr = subTreePtr->getLeftChildPtr();
-		BinaryNode<ItemType>* rightPtr = subTreePtr->getRightChildPtr();
-		if (leftPtr != nullptr)
-		{
-			subTreePtr->setItem(leftPtr->getItem());
-			moveValuesUpTree(leftPtr);
-		}
-		else if (rightPtr != nullptr)
-		{
-			subTreePtr->setItem(rightPtr->getItem());
-			moveValuesUpTree(rightPtr);
-		}
-	}
-	return nullptr;
+	//
 }
 
 template <class ItemType>
@@ -302,7 +288,7 @@ BinaryNodeTree<ItemType>::BinaryNodeTree(const BinaryNodeTree < ItemType > &tree
 template <class ItemType>
 BinaryNodeTree<ItemType>::~BinaryNodeTree()
 {
-	destroyTree(rootPtr);
+	this->clear();
 }
 
 //------------------------------------------------------------
@@ -357,7 +343,7 @@ bool BinaryNodeTree<ItemType>::add(const ItemType & newData)
 template <class ItemType>
 bool BinaryNodeTree<ItemType>::remove(const ItemType & data)
 {
-	return false;
+	//
 }
 
 template <class ItemType>

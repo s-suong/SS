@@ -149,9 +149,12 @@
     <ClInclude Include="BinaryNodeTree.h" />
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="BinaryTreeInterface.h" />
+    <ClInclude Include="HeapInterface.h" />
+    <ClInclude Include="heapSort.h" />
     <ClInclude Include="Heap_PriorityQueue.h" />
     <ClInclude Include="NotFoundException.h" />
     <ClInclude Include="PrecondViolatedExcep.h" />
+    <ClInclude Include="PriorityQueueInterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
